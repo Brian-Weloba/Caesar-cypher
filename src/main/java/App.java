@@ -20,13 +20,16 @@ public class App {
 
             System.out.println(" ");
             System.out.println("Would you like to: \n 1. ENCODE \n 2. DECODE \n 3. EXIT");
-            String res = con.readLine();
-            int response = Integer.parseInt(res);
-            String output;
+            int response = 0;
+            try {
+                response = Integer.parseInt(con.readLine());
+            } catch (NumberFormatException e) {
+                System.out.println(" ");
+            }
 
             if (response == 1) {
                 System.out.println("Input text to encode: ");
-                String inputText = con.readLine();
+                String inputText = con.readLine().toLowerCase();
                 System.out.println("Enter key: ");
                 int key = Integer.parseInt(con.readLine());
                 Cypher cypher = new Cypher(key, inputText);
@@ -36,7 +39,7 @@ public class App {
 
             }else if (response==2){
                 System.out.println("Input text to decode: ");
-                String inputText = con.readLine();
+                String inputText = con.readLine().toLowerCase();
                 System.out.println("Enter key: ");
                 int key = Integer.parseInt(con.readLine());
                 Cypher cypher = new Cypher(key, inputText);

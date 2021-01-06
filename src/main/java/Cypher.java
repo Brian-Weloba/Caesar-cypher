@@ -71,7 +71,11 @@ public class Cypher {
             }
             for (char letter : alphabetArray) {
                 if (c == letter) {
-                    decoded.append(alphabetArray[alphabet.indexOf(c) - (mKey % 26)]);
+                    try {
+                        decoded.append(alphabetArray[alphabet.indexOf(c) - ((mKey) % 26)]);
+                    } catch (Exception e) {
+                        decoded.append(alphabetArray[alphabet.indexOf(c) - ((mKey) % 26)+26]);
+                    }
                 }
             }
         }
