@@ -19,6 +19,11 @@ public class Cypher {
     }
 
     public boolean isInputValid(String mInput) {
+
+        if(mInput.isEmpty() || mInput.equals(" ")){
+            System.out.println("Input is not Valid");
+        }
+
         char[] inputArray = mInput.toCharArray();
 
         for (char c : inputArray) {
